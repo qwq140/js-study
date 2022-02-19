@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 4.6 Set 객체
+    /*
+    1. Set 객체는 Array 처럼 값들의 집합이다.
+    2. Set 객체는 중복 값을 허용하지 않는다.
+    3. 기존에 동일한 값이 저장되어 있는지 확인하고 이미 저장되어 있다면 나중에 추가한 데이터는 추가되지 않는다.
+    4. 특정 데이터가 저장되어 있는지 확인하려면 has() 함수를 사용한다.
+    5. 저장되어 있는 특정 데이터를 삭제하려면 delete() 함수를 사용한다.
+    6. 저장되어 있는 모든 데이터를 한 번에 삭제하려면 clear() 함수를 사용한다.
+    7. Set에 저장되는 모든 데이터를 읽을 때 forEach() 함수를 사용한다.
+    */
+    let mySet = new Set();
+    mySet.add(1);
+    mySet.add(2);
+    mySet.add(3);
+    mySet.add(1);
+    console.log(mySet); // {1, 2, 3}
+    console.log(mySet.size); // 3
+    
+    console.log(mySet.has(1)); // true
+    
+    mySet.delete(2);
+    console.log(mySet); // {1, 3}
+
+    mySet.clear();
+    console.log(mySet); // 저장되어 있는 모든 데이터가 삭제 됨
+
+    mySet.add(1);
+    mySet.add(2);
+    mySet.add(3);
+
+    mySet.forEach(function (item){
+        console.log(item); // 1, 2, 3
+    });
+</script>
+</body>
+</html>

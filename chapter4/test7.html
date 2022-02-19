@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 4.8 Math 객체
+    /*
+    Math 객체는 수학적인 상수와 내장 함수를 가진 객체이다.
+    다른 객체와 달리 Math는 생성자가 아니다. Math는 숫자 자료형만 지원한다.
+    1. Math.round()는 숫자에 대한 반올림을 처리한다.
+    2. Math.ceil()는 숫자에 대한 무조건 올림 처리를 한다.
+    3. Math.floor()는 숫자에 대한 무조건 내림 처리를 한다.
+    4. Math.trunc()는 소수 부분은 무조건 버리고 정수 부분만 반환한다.
+    5. Math.sign()는 숫자가 양수인지 음수인지 확인하는 용도로 사용된다. 양수이면 1, 음수이면 -1, 0이면 0을 반환한다.
+    6. Math.pow()는 제곱근 값을 반환한다.
+    7. Math.sqrt()는 루트 값을 반환한다.
+    8. Math.abs()는 무조건 양수로 반환한다.
+    9. Math.min()은 가장 작은 값을 반환, Math.max()은 가장 큰 값을 반환
+    10. Math.random()은 0보다 크고 1보다 작은 숫자형 값을 반환한다.
+    */
+    console.log(Math.round(4.9)); // 5
+    console.log(Math.round(4.7)); // 5
+    console.log(Math.round(4.4)); // 4
+    console.log(Math.round(4.2)); // 4
+    console.log(Math.round(-4.2)); // -4
+
+    console.log(Math.ceil(4.9)); // 5
+    console.log(Math.ceil(4.7)); // 5
+    console.log(Math.ceil(4.4)); // 5
+    console.log(Math.ceil(4.2)); // 5
+    console.log(Math.ceil(-4.2)); // -4
+
+    // 실무 사례 : 전체 아이템이 총 몇 페이지가 되는지 계산할 때 Math.ceil() 함수를 사용해서 총 페이지를 구할 수 있다.
+    // 한 페이지 당 10건의 아이템 표시
+    // 총 아이템 수 : 72
+    // 총 페이지 수 : 8
+    console.log(Math.ceil(72/10)); // 8
+
+    console.log(Math.floor(4.9)); // 4
+    console.log(Math.floor(4.7)); // 4
+    console.log(Math.floor(4.4)); // 4
+    console.log(Math.floor(4.2)); // 4
+    console.log(Math.floor(-4.2)); // -5
+
+    console.log(Math.trunc(4.9)); // 4
+    console.log(Math.trunc(4.7)); // 4
+    console.log(Math.trunc(4.4)); // 4
+    console.log(Math.trunc(4.2)); // 4
+    console.log(Math.trunc(-4.2)); // -4
+
+    console.log(Math.sign(4.9)); // 1
+    console.log(Math.sign(0)); // 0
+    console.log(Math.sign(-4.4)); // -1
+
+    console.log(Math.pow(8,2)); // 64
+
+    console.log(Math.sqrt(64)); // 8
+
+    console.log(Math.abs(-4.7)); // 4.7
+
+    console.log(Math.min(0, 150, 30, 20, -8, -200)); // -200
+    console.log(Math.max(0, 150, 30, 20, -8, -200)); // 150
+
+    let ran = Math.random();
+
+    // 0에서 9 사이의 정수
+    console.log(Math.floor(ran*10));
+
+    // 0에서 100 사이의 정수
+    console.log(Math.floor(ran*101));
+
+    // 1에서 10 사이의 정수
+    console.log(Math.floor(ran*10)+1);
+
+    // 최댓값과 최솟값을 받아서 최댓값과 최솟값 사이의 정수를 반환하는 함수
+    function getRndInteger(min, max){
+        return Math.floor(Math.random()*(max - min + 1)) + min;
+    }
+
+    console.log(getRndInteger(1, 12));
+</script>
+</body>
+</html>

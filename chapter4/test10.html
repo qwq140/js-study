@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // 4.11 Symbol 객체
+    // let person = {
+    //     firstName : "Jeremy",
+    //     lastName : "Go",
+    //     getFullName : function(){
+    //         return this.firstName + " " +this.lastName;
+    //     }
+    // }
+
+    // for (const key in person) {
+    //     console.log(key); // firstName, lastName, getFullName 출력
+    // }
+
+    // console.log(person.getFullName()); // Jeremy Go
+
+    // 만약 자바스크립트 버전이 업데이트되면서 우리가 추가한 함수인 getFullName이 오브젝트의 기본 내장 함수로 추가되거나 
+    // 무심코 사용한 key 값이 자바스크립트에서 사용하고 있는 내장된 key값과 동일하면 원하는 결과를 얻지 못하고 오류가 발생할 것이다.
+    // Symbol은 자바스크립트에서 절대 충돌이 일어나지 않는 유일한 key 값을 만들어준다.
+    // Symbol은 유일한 Key를 생성할 수 있을 뿐만 아니라, Symbol로 추가한 key를 노출시키지 않고 감출 수 있다.
+    let person = {
+        firstName : "Jeremy",
+        lastName : "Go",
+    };
+
+    let getFullName = Symbol("getFullName"); // 유일한 Key 생성
+    person[getFullName] = function(){
+        return this.firstName + " " + this.lastName;
+    };
+
+    for (const key in person) {
+        console.log(key); // firstName, lastName 출력
+    }
+
+    console.log(person[getFullName]()); // Jeremy Go
+</script>
+</body>
+</html>
