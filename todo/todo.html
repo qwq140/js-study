@@ -34,7 +34,7 @@
 
             todoList.push(todo);
 
-            let test = `
+            let html = `
                 <div id="div_${idx}">
                     <input type="checkbox" id="check_${idx}" onchange="check(${idx})">
                     <span id="todo_span_${idx}">
@@ -44,30 +44,7 @@
                 </div>
             `;
 
-            let todoDiv = document.createElement('div');
-            todoDiv.setAttribute('id', `div_${idx}`);
-            
-            let todoCheck = document.createElement('input');
-            todoCheck.setAttribute('type', 'checkbox');
-            todoCheck.setAttribute('id', `check_${idx}`);
-            todoCheck.setAttribute('onchange', `check(${idx})`);
-            
-            let todoSpan = document.createElement('span');
-            todoSpan.setAttribute('id', `todo_span_${idx}`);
-            todoSpan.innerText = content;
-
-            let todoRemoveBtn = document.createElement('button');
-            todoRemoveBtn.setAttribute('id', `re_btn_${idx}`);
-            todoRemoveBtn.setAttribute('onclick', `remove(${idx})`);
-            todoRemoveBtn.innerText = "삭제";
-            
-            todoDiv.append(todoCheck);
-            todoDiv.append(todoSpan);
-            todoDiv.append(todoRemoveBtn);
-
-            let todoArea = document.getElementById('todo_area');
-            // todoArea.append(todoDiv);
-            todoArea.insertAdjacentHTML("beforeend", test);
+            todoArea.insertAdjacentHTML("beforeend", html);
 
             idx++;
             document.getElementById('content').value = "";
