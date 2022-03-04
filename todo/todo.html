@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>To do list</h1>
+    <div>
+        <input type="text" id="content">
+        <button type="button" onclick="registration()">등록</button>
+    </div>
+    <br>
+    <div id="todo_area">
+    </div>
+    <script>
+        let todoList = [];
+        let idx = 1;
+        function registration(){
+            let content = document.getElementById('content').value;
+            
+            if(content === ""){
+                alert('값을 입력해주세요');
+                return ;
+            }
+            
+            let todo = {
+                id : idx,
+                content : content,
+                isDone : false,
+            };
+
+            todoList.push(todo);
+
+            let test = `
+                <div id="div_${idx}">
+                    <input type="checkbox" id="check_${idx}" onchange="check(${idx})">
+                    <span id="todo_span_${idx}">
+                        ${content}
+                    <span>
+                    <button type="button" id="remove_btn_${idx}" onclick="remove(${idx})">삭제</button>
+                </div>
+            `;
+
+            let todoDiv = document.createElement('div');
+            todoDiv.setAttribute('id', `div_${idx}`);
+            
+            let todoCheck = document.createElement('input');
+            todoCheck.setAttribute('type', 'checkbox');
+            todoCheck.setAttribute('id', `check_${idx}`);
+            todoCheck.setAttribute('onchange', `check(${idx})`);
+            
+            let todoSpan = document.createElement('span');
+            todoSpan.setAttribute('id', `todo_span_${idx}`);
+            todoSpan.innerText = content;
+
+            let todoRemoveBtn = document.createElement('button');
+            todoRemoveBtn.setAttribute('id', `re_btn_${idx}`);
+            todoRemoveBtn.setAttribute('onclick', `remove(${idx})`);
+            todoRemoveBtn.innerText = "삭제";
+            
+            todoDiv.append(todoCheck);
+            todoDiv.append(todoSpan);
+            todoDiv.append(todoRemoveBtn);
+
+            let todoArea = document.getElementById('todo_area');
+            // todoArea.append(todoDiv);
+            todoArea.insertAdjacentHTML("beforeend", test);
+
+            idx++;
+            document.getElementById('content').value = "";
+        }
+
+        function remove(index){
+            let todoDiv = document.getElementById(`div_${index}`).remove();
+            for(key in todoList){
+                if(todoList[key]['id']==index){
+                    todoList.splice(key, 1);
+                    break;
+                }
+            }
+        }
+
+        function check(index){
+            for(key in todoList){
+                if(todoList[key]['id']==index){
+                    todoList[key]['isDone'] = !todoList[key]['isDone'];
+                    if(todoList[key]['isDone']){
+                        document.getElementById(`todo_span_${index}`).style.textDecoration = "line-through";
+                    } else {
+                        document.getElementById(`todo_span_${index}`).style.textDecoration = "none";
+                    }
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+</html>

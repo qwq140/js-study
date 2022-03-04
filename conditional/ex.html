@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Program</h1>
+    <script>
+        document.write("1<br>");
+        document.write("2<br>");
+        document.write("3<br>");
+        document.write("4<br>");
+    </script>
+    <h1>IF : true</h1>
+    <script>
+        document.write("1<br>");
+        if (-1) {
+            document.write("2<br>");
+        } else {
+            document.write("3<br>");
+        }
+        document.write("4<br>");
+    </script>
+    <h1>IF : false</h1>
+    <script>
+        document.write("1<br>");
+        if (false) {
+            document.write("2<br>");
+        } else {
+            document.write("3<br>");
+        }
+        document.write("4<br>");
+    </script>
+    <h1>switch</h1>
+    <script>
+        let x = 2;
+        switch (x) {
+            case 1:
+                document.write("1<br>");
+            case 2:
+                document.write('2<br>');
+            default:
+                document.write('3<br>');
+        }
+    </script>
+    <script>
+        let a = 3;
+
+        switch (a) {
+            case 4:
+                console.log('첫번째 case 문 실행');
+                break;
+            case 3:
+            case 5:
+                console.log('두번째 세번째 case 문 묶음');
+                break;
+            default:
+                console.log('default 문 실행');
+        }
+
+        const action = 'say_hello';
+        switch (action) {
+            case 'say_hello': {
+                let message = 'hello';
+                console.log(message);
+                break;
+            }
+            case 'say_hi': {
+                let message = 'hi';
+                console.log(message);
+                break;
+            }
+            default:
+                console.log('Empty action received.');
+                break;
+        }
+
+        let array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        let input = '짝수';
+        
+        switch(input){
+            case '홀수':
+                console.log('홀수번째 요소를 출력합니다.');
+                for(let i = 0; i < array.length ; i+=2){
+                    console.log(array[i]);
+                }
+                break;
+            case '짝수':
+                console.log('짝수번째 요소를 출력합니다.');
+                for(let i = 1; i < array.length ; i+=2){
+                    console.log(array[i]);
+                }
+                break;
+            default : 
+                console.log('잘못입력했습니다.');
+        }
+    </script>
+</body>
+
+</html>
